@@ -75,6 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     setState(() {
       _userTransactions.add(newTx);
+      //Sắp xếp lại transaction
+      _arrangeTransaction();
     });
   }
 
@@ -92,6 +94,15 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _userTransactions.removeWhere((tx) => tx.id == id);
     });
+  }
+
+  /* Sắp xếp các Giao dịch: sắp xếp theo thứ tự ngày tháng
+      Gọi đến hàm này mỗi khi thêm transaction mới
+      => Khi hiển thị ra List transaction sẽ hiển thị theo thứ tự thời gian
+        (Gần đây nhất thì hiển thị trước) */
+  void _arrangeTransaction() {
+    _userTransactions.sort((tx1, tx2) => -tx1.date.compareTo(tx2.date));
+    //method sort() của List : truyền vào 1 hàm để so sánh
   }
 
   @override
