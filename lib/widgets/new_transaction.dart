@@ -77,7 +77,7 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
             TextField(
               decoration: InputDecoration(
-                labelText: 'Giá tiền',
+                labelText: 'Giá tiền (nghìn đồng)',
               ),
               controller: _amountController,
               keyboardType: TextInputType.number,
